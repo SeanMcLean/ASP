@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="763fc73c2b4e4b518578771b57673a8d" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryDBModel.Access" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.BOOK" Width="1.5" PointX="8.125" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.CONFERENCEPROCEEDING" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.DVD" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.EMPLOYEE" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.HISTORY" Width="1.5" PointX="0.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Item" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.JOURNAL" Width="1.5" PointX="3" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.Member" Width="1.5" PointX="5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.MEMBERHISTORY" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.ptemp3" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.PUBLISHER" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.sysdiagram" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.SYSLOG" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.TRANSACTION" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.User" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="LibraryDBModel.FK__EMPLOYEE__Access__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__Member__AccessLe__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_Item_BOOK" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_Item_CONFERENCEPROCEEDING" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_Item_DVD" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_History" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_HISTORY_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_Item_JOURNAL" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_Item_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK_PublisherTransaction" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
