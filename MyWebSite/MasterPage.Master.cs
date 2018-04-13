@@ -9,6 +9,8 @@ namespace MyWebSite
 {
     public partial class MasterPage : System.Web.UI.MasterPage
     {
+        public User currentUser = new User();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

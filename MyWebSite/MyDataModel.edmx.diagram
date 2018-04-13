@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="LibraryDBModel.sysdiagram" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.SYSLOG" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.TRANSACTION" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.User" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.User" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <AssociationConnector Association="LibraryDBModel.FK__EMPLOYEE__Access__5CD6CB2B" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK__Member__AccessLe__5DCAEF64" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_Item_BOOK" ManuallyRouted="false" />
