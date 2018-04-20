@@ -18,10 +18,10 @@ namespace MyWebSite.Pages
 
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+     /*   protected void btnLogin_Click(object sender, EventArgs e)
         {
             bool authenticated = false;
-            var userName = tbxUsername.Text.Trim();
+            var userName = tbxUserName.Text.Trim();
             var passWord = tbxPassword.Text.Trim();
 
             foreach(var userRecord in db.Users.Where(t => t.Username == userName && t.Password == passWord))
@@ -37,6 +37,34 @@ namespace MyWebSite.Pages
                 Response.Redirect("~/pages/Home.aspx");
             }
 
+        }*/
+
+        protected void btnLogin_Click1(object sender, EventArgs e)
+        {
+            bool authenticated = false;
+            var userName = tbxUsername.Text.Trim();
+            var passWord = tbxPassword.Text.Trim();
+
+            foreach (var userRecord in db.Users.Where(t => t.Username == userName && t.Password == passWord))
+            {
+                user = userRecord;
+                authenticated = true;
+                break;
+
+                //((MasterPage)this.Master).currentUser = this.user;
+                // Response.Redirect("~/pages/Home.aspx");
+            }
+
+            if (authenticated)
+            {
+    
+                Response.Redirect("../pages/Home.aspx");
+            }
+            else
+            {
+                lblSuccess.Text = "Problem Loggin In";
+            }
+            
         }
     }
 }
