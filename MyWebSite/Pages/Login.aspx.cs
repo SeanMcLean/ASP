@@ -12,6 +12,7 @@ namespace MyWebSite.Pages
     {
         LibraryDBEntities db = new LibraryDBEntities();
         User user = new User();
+      //  Log log = new Log();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,18 +40,27 @@ namespace MyWebSite.Pages
 
         }*/
 
-      /*  protected void CreateLog(int UserId, string Category, string description)
+       /* protected void CreateLog(int UserId, string Category, string description)
         {
-            Logs logs = new Logs();
-            logs.userId = UserId;
-            logs.category = Category;
-            logs.description = description;
-            db.logs.Add(logs);
-            int sucess = db.SaveChanges();
-
-            if (sucess == 0)
+            try
             {
-                lblSuccess.Text = "Error Creating Logs"
+                Logs logs = new Logs();
+                logs.UserID = UserId;
+                logs.Category = Category;
+                logs.Description = description;
+                db.Logs.Add(logs);
+                //db.logs.Add(logs);
+                int sucess = db.SaveChanges();
+
+                if (sucess == 0)
+                {
+                    lblSuccess.Text = "Error Creating Logs";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
         */
@@ -64,9 +74,12 @@ namespace MyWebSite.Pages
             foreach (var userRecord in db.Users.Where(t => t.Username == userName && t.Password == passWord))
             {
                 authenticated = true;
-                //CreteLog(user.UID, "Login", "User " + user.Username + " Aut Suc");
+
+            //    CreateLog(user.UID, "Login", "User " + user.Username + " Aut Suc");
                 user = userRecord;
                 break;
+
+                ((MasterPage)this.Master).currentUser = this.user;
             }
 
             if (authenticated)

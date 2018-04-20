@@ -18,7 +18,6 @@
         <EntityTypeShape EntityType="LibraryDBModel.ptemp3" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.PUBLISHER" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.sysdiagram" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryDBModel.SYSLOG" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.TRANSACTION" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryDBModel.User" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <AssociationConnector Association="LibraryDBModel.FK__EMPLOYEE__Access__5CD6CB2B" ManuallyRouted="false" />
@@ -32,6 +31,8 @@
         <AssociationConnector Association="LibraryDBModel.FK_Item_Member" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_Member" ManuallyRouted="false" />
         <AssociationConnector Association="LibraryDBModel.FK_PublisherTransaction" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LibraryDBModel.Log" Width="1.5" PointX="3" PointY="9.75" />
+        <AssociationConnector Association="LibraryDBModel.FK_Logs_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

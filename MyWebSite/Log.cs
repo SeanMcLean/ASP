@@ -12,11 +12,13 @@ namespace MyWebSite
     using System;
     using System.Collections.Generic;
     
-    public partial class SYSLOG
+    public partial class Log
     {
-        public int SysLogID { get; set; }
-        public string UserName { get; set; }
-        public Nullable<System.DateTime> AccessDate { get; set; }
-        public string Interaction { get; set; }
+        public int LogID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public string Category { get; set; }
+        public string Description { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

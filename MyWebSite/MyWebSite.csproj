@@ -138,6 +138,9 @@
     <Compile Include="JOURNAL.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>MyDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,10 +204,13 @@
     <Compile Include="PUBLISHER.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SYSLOG.cs">
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>MyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TRANSACTION.cs">
