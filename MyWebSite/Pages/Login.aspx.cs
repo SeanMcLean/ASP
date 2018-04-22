@@ -12,58 +12,38 @@ namespace MyWebSite.Pages
     {
         LibraryDBEntities db = new LibraryDBEntities();
         User user = new User();
-      //  Log log = new Log();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-     /*   protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            bool authenticated = false;
-            var userName = tbxUserName.Text.Trim();
-            var passWord = tbxPassword.Text.Trim();
+         protected int CreateLog(int UserId, string Category, string description)
+         {
+             int saveSuccess = 0;
+             try
+             {
+               
+                 Log logs = new Log();
+                 logs.UserID = UserId;
+                 logs.Category = Category;
+                 logs.Description = description;
+                 db.Logs.Add(logs);
 
-            foreach(var userRecord in db.Users.Where(t => t.Username == userName && t.Password == passWord))
-            {
-                user = userRecord;
-                authenticated = true;
-            }
+                saveSuccess = db.SaveChanges();
 
-            if (authenticated)
-            {
-                ((MasterPage)this.Master).currentUser = this.user;
-
-                Response.Redirect("~/pages/Home.aspx");
-            }
-
-        }*/
-
-       /* protected void CreateLog(int UserId, string Category, string description)
-        {
-            try
-            {
-                Logs logs = new Logs();
-                logs.UserID = UserId;
-                logs.Category = Category;
-                logs.Description = description;
-                db.Logs.Add(logs);
-                //db.logs.Add(logs);
-                int sucess = db.SaveChanges();
-
-                if (sucess == 0)
-                {
-                    lblSuccess.Text = "Error Creating Logs";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+                 if (saveSuccess == 0)
+                 {
+                     lblSuccess.Text = "Error Creating Logs";
+                 }
+             }
+             catch (Exception ex)
+             {
+                lblSuccess.Text = "Error in database " + ex.InnerException;
+             }
+            return (saveSuccess);
         }
-        */
+
 
         protected void btnLogin_Click1(object sender, EventArgs e)
         {
@@ -74,21 +54,21 @@ namespace MyWebSite.Pages
             foreach (var userRecord in db.Users.Where(t => t.Username == userName && t.Password == passWord))
             {
                 authenticated = true;
-
-            //    CreateLog(user.UID, "Login", "User " + user.Username + " Aut Suc");
                 user = userRecord;
                 break;
-
-                ((MasterPage)this.Master).currentUser = this.user;
             }
 
             if (authenticated)
             {
-                Response.Redirect("../pages/Home.aspx");
+                // Use a session state to store the current user.
+                HttpContext.Current.Session["currentUser"] = user;
+
+                //Send user to the home page when authenticated
+                Response.Redirect("~/pages/home.aspx");
             }
             else
             {
-                lblSuccess.Text = "Problem Loggin In";
+                lblSuccess.Text = "Incorrect Username or Password";
             }
             
         }
