@@ -141,6 +141,9 @@
     <Compile Include="Log.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Logs2.cs">
+      <DependentUpon>MyDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -211,6 +214,9 @@
       <DependentUpon>MyDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
+      <DependentUpon>MyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysLog.cs">
       <DependentUpon>MyDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TRANSACTION.cs">

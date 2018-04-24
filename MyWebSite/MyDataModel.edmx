@@ -103,6 +103,16 @@
           <Property Name="Category" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Logs2">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="Member_ID" />
@@ -185,6 +195,16 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="SysLogs">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
         </EntityType>
         <EntityType Name="TRANSACTIONS">
           <Key>
@@ -326,6 +346,18 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Logs2_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Logs2" Type="Self.Logs2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Logs2">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Member">
           <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
           <End Role="MEMBERHISTORY" Type="Self.MEMBERHISTORY" Multiplicity="*" />
@@ -347,6 +379,18 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
             </Principal>
             <Dependent Role="TRANSACTIONS">
               <PropertyRef Name="Publisher_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysLogs_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="SysLogs" Type="Self.SysLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="SysLogs">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -391,11 +435,13 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JOURNAL" EntityType="Self.JOURNAL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs2" EntityType="Self.Logs2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEMBERHISTORY" EntityType="Self.MEMBERHISTORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ptemp3" EntityType="Self.ptemp3" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUBLISHER" EntityType="Self.PUBLISHER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysLogs" EntityType="Self.SysLogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__EMPLOYEE__Access__5CD6CB2B" Association="Self.FK__EMPLOYEE__Access__5CD6CB2B">
@@ -438,6 +484,10 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
             <End Role="Users" EntitySet="Users" />
             <End Role="Logs" EntitySet="Logs" />
           </AssociationSet>
+          <AssociationSet Name="FK_Logs2_Users" Association="Self.FK_Logs2_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Logs2" EntitySet="Logs2" />
+          </AssociationSet>
           <AssociationSet Name="FK_Member" Association="Self.FK_Member">
             <End Role="Member" EntitySet="Member" />
             <End Role="MEMBERHISTORY" EntitySet="MEMBERHISTORY" />
@@ -445,6 +495,10 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
           <AssociationSet Name="FK_PublisherTransaction" Association="Self.FK_PublisherTransaction">
             <End Role="PUBLISHER" EntitySet="PUBLISHER" />
             <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysLogs_Users" Association="Self.FK_SysLogs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SysLogs" EntitySet="SysLogs" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -646,6 +700,8 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AccessLevel" Type="Int32" />
           <NavigationProperty Name="Logs" Relationship="LibraryDBModel.FK_Logs_Users" FromRole="User" ToRole="Log" />
+          <NavigationProperty Name="Logs2" Relationship="LibraryDBModel.FK_Logs2_Users" FromRole="User" ToRole="Logs2" />
+          <NavigationProperty Name="SysLogs" Relationship="LibraryDBModel.FK_SysLogs_Users" FromRole="User" ToRole="SysLog" />
         </EntityType>
         <Association Name="FK__EMPLOYEE__Access__5CD6CB2B">
           <End Role="Access" Type="Self.Access" Multiplicity="0..1" />
@@ -874,6 +930,16 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Logs2" EntityType="LibraryDBModel.Logs2" />
+          <EntitySet Name="SysLogs" EntityType="LibraryDBModel.SysLog" />
+          <AssociationSet Name="FK_Logs2_Users" Association="LibraryDBModel.FK_Logs2_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Logs2" EntitySet="Logs2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysLogs_Users" Association="LibraryDBModel.FK_SysLogs_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SysLog" EntitySet="SysLogs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Log">
           <Key>
@@ -908,6 +974,52 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Logs2">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="User" Relationship="LibraryDBModel.FK_Logs2_Users" FromRole="Logs2" ToRole="User" />
+        </EntityType>
+        <EntityType Name="SysLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="User" Relationship="LibraryDBModel.FK_SysLogs_Users" FromRole="SysLog" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Logs2_Users">
+          <End Type="LibraryDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="LibraryDBModel.Logs2" Role="Logs2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Logs2">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysLogs_Users">
+          <End Type="LibraryDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="LibraryDBModel.SysLog" Role="SysLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="SysLog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1136,6 +1248,28 @@ warning 6013: The table/view 'LibraryDB.dbo.postcodeNew' does not have a primary
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="LibraryDBModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="LibraryDBModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Logs2">
+            <EntityTypeMapping TypeName="LibraryDBModel.Logs2">
+              <MappingFragment StoreEntitySet="Logs2">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysLogs">
+            <EntityTypeMapping TypeName="LibraryDBModel.SysLog">
+              <MappingFragment StoreEntitySet="SysLogs">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

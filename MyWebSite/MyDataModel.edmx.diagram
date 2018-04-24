@@ -33,6 +33,10 @@
         <AssociationConnector Association="LibraryDBModel.FK_PublisherTransaction" ManuallyRouted="false" />
         <EntityTypeShape EntityType="LibraryDBModel.Log" Width="1.5" PointX="3" PointY="9.75" />
         <AssociationConnector Association="LibraryDBModel.FK_Logs_Users" />
+        <EntityTypeShape EntityType="LibraryDBModel.Logs2" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryDBModel.SysLog" Width="1.5" PointX="3" PointY="23.875" />
+        <AssociationConnector Association="LibraryDBModel.FK_Logs2_Users" />
+        <AssociationConnector Association="LibraryDBModel.FK_SysLogs_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

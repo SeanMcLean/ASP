@@ -18,6 +18,8 @@ namespace MyWebSite
         public User()
         {
             this.Logs = new HashSet<Log>();
+            this.Logs2 = new HashSet<Logs2>();
+            this.SysLogs = new HashSet<SysLog>();
         }
     
         public int UID { get; set; }
@@ -27,5 +29,9 @@ namespace MyWebSite
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log> Logs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Logs2> Logs2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SysLog> SysLogs { get; set; }
     }
 }
