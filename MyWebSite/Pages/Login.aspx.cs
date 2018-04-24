@@ -87,8 +87,8 @@ namespace MyWebSite.Pages
                 user = userRecord;
                 break;
             }
-            DateTime today = DateTime.Today;
-            //today.ToShortDateString();
+            DateTime today = DateTime.UtcNow;
+
             // Cannot save record whilst inside a foreach loop. Must be completed outside the loop
             saveSuccess = CreateLog(Convert.ToInt16(user.UID), "Login", "User " + user.Username.ToString() + " authenticated successfully.", today);
             // saveSuccess indicates if the record has been saved successfully into the SQL database

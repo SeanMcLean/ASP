@@ -21,7 +21,7 @@
 <a class="btn btn-default" href="http://172.28.134.11/Reports/report/LibraryVersion2/BrowseDB"> Item Search Report  &raquo;</a>
 </p>
 <p>
-<a class="btn btn-default" href="http://172.28.134.11/Reports/browse/LibraryVersion2/Logs"> System Logs Report &raquo;</a>
+<a class="btn btn-default" href="http://172.28.134.11/Reports/report/LibraryVersion2/Access%20Logs"> System Logs Report &raquo;</a>
 </p>
 <p>
 <a class="btn btn-default" href="http://172.28.134.11/Reports/browse/LibraryVersion2"> Report Overview &raquo;</a>
