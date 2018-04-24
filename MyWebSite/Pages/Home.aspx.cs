@@ -9,6 +9,7 @@ namespace MyWebSite.Pages
 {
     public partial class Home : System.Web.UI.Page
     {
+        //create new instnace of user, used to store and recall user who is logged in 
         User user = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,12 +21,6 @@ namespace MyWebSite.Pages
             string welcomeMessage = "Welcome " + userName  + ". Please select an option";
             lblWelcome.Text = welcomeMessage;
         }
-        private void ShowUser()
-        {
-          //  user.Username = ((MasterPage)this.Master).currentUser.Username;
-            //user = ((MasterPage)this.Master).currentUser;
-
-         //   lblWelcome.Text = user.Username.ToString();
-        }
+       
     }
 }

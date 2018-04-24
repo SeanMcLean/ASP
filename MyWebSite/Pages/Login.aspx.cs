@@ -50,6 +50,7 @@ namespace MyWebSite.Pages
             bool authenticated = false;
             var userName = tbxUsername.Text.Trim();
             var passWord = tbxPassword.Text.Trim();
+            int saveSuccess = 0;
 
             foreach (var userRecord in db.Users.Where(t => t.Username == userName && t.Password == passWord))
             {
@@ -57,6 +58,9 @@ namespace MyWebSite.Pages
                 user = userRecord;
                 break;
             }
+            // Cannot save record whilst inside a foreach loop. Must be completed outside the loop
+            saveSuccess = CreateLog(Convert.ToInt16(user.UID), "Login", "User " + user.Username.ToString() + " authenticated successfully.");
+            // saveSuccess indicates if the record has been saved successfully into the SQL database
 
             if (authenticated)
             {
