@@ -15,7 +15,7 @@ namespace MyWebSite.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Clear();
         }
 
         /*  protected int CreateLog(int UserId, string Category, string description)

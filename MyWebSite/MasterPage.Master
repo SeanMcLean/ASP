@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 
+
 <html>
 <head runat="server">
     <link rel="stylesheet" href="Styles/StyleSheet.css" type="text/css" />
@@ -15,7 +16,7 @@
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/banner.png" Width="100%" />
         </div>
         <div id="navigation">
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
                 <Items>
                     <asp:MenuItem NavigateUrl="~/Pages/Home.aspx" Text="Home" ToolTip="Click This To View Homepage" Value="Home"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Pages/About.aspx" Text="About" ToolTip="For More Information " Value="About"></asp:MenuItem>

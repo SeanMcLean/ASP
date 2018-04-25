@@ -39,7 +39,7 @@
                 ForeColor ="Black"
                 CellPadding="5"> 
                 <asp:TableCell>
-                <asp:TextBox runat="server" id="tbxPassword" class="form-control" placeholder="Password"></asp:TextBox>
+                <asp:TextBox runat="server" id="tbxPassword" class="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow 

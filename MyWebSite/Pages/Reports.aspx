@@ -2,11 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logs" />
 
 <h1>Report Selection</h1>
 <p>
-<a class="btn btn-default" href="http://172.28.134.11/Reports/report/LibraryVersion2/PublisherReport"> Publisher Sales Report  &raquo;</a>
+<a class="btn btn-default" href="http://172.28.134.11/Reports/report/LibraryVersion2/PublisherReport"> Publisher Sales Report  &raquo; </a>
 </p>
 <p>
 <a class="btn btn-default" href="http://172.28.134.11/Reports/report/LibraryVersion2/DueDate"> Overdue Books Report  &raquo;</a>
