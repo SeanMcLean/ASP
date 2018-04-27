@@ -85,6 +85,7 @@
     <Content Include="MyDataModel.edmx.diagram">
       <DependentUpon>MyDataModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\172.28.134.11.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
