@@ -18,7 +18,9 @@ namespace MyWebSite.Pages
 
             // Build the login message
             string userName = user.Username;
+            //create string object to store welcom message 
             string welcomeMessage = "Welcome to LYIT library " + userName ;
+
             lblWelcome.Text = welcomeMessage;
         }
        
